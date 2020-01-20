@@ -194,8 +194,14 @@ public:
 	} 
 };
 
-int main() {
-	Server* s = new Server(12345, 1024);
+int main(int argc, char* argv[]) {
+	if (argc < 3) {
+		printf("Usage %s listen_ip listen_port\n", argv[0]);
+		return 1;
+	} 
+	int listen_port = atoi(argv[1]);
+	int listen_backlog = atoi(argv[2]);	
+	Server* s = new Server(listen_port, listen_backlog);
 	s->start();
 	return 0;
 }
