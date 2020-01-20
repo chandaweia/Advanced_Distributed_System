@@ -48,7 +48,7 @@ public:
 				printf("client %s close the connection\n", it->second.c_str());
 				clients_addresses.erase(it);
 			} else {
-				printf("1 unknown client close the connection\n");
+				printf("unknown client close the connection\n");
 			}
 			close(connfd);
 			return -1;
@@ -59,7 +59,7 @@ public:
 				printf("read error from client %s\n", (it->second).c_str());
 				clients_addresses.erase(it);
 			} else {
-				printf("2 unknown client read error\n");
+				printf("unknown client read error\n");
 			} 
 			close(connfd);
 			return -1;
@@ -73,7 +73,7 @@ public:
 			printf("close client %s\n", it->second.c_str());
 			clients_addresses.erase(it);
 		} else {
-			printf("3 close unknown client, connfd=%d\n", connfd);
+			printf("close unknown client\n");
 		}
 		close(connfd);
 		return 0;
@@ -156,9 +156,8 @@ public:
 
 					sprintf(buf, "accept form %s:%d\n", inet_ntoa(cliaddr.sin_addr), cliaddr.sin_port);
 					string client_address = string(inet_ntoa(cliaddr.sin_addr)) + ":" + std::to_string(cliaddr.sin_port);
-					printf("connfd=%d\n", connfd);
 					clients_addresses.insert(pair<int, string>(connfd, client_address));                
-					printf("%d:%s", ++acceptCount, buf);
+					printf("accepted count(%d):%s", ++acceptCount, buf);
 
 					if (curfds >= MAXEPOLLSIZE) {
 						fprintf(stderr, "too many connection, more than %d\n", MAXEPOLLSIZE);
