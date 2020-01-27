@@ -38,7 +38,7 @@ Use `int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen)` to accep
 ## Epoll
 Use `epoll_create, epoll_ctl, epoll_wait` to monitor the READ and WRITE events from the clients.
 ## Read and write message
-Use `ssize_t read(int fd, void *buf, size_t count)` and `ssize_t write(int fd, const void *buf, size_t count)` to read and write message to the peer side.
+Use `size_t read(int fd, void *buf, size_t count)` and `size_t write(int fd, const void *buf, size_t count)` to read and write message to the peer side.
 
 
 
