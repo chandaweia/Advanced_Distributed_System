@@ -1,5 +1,5 @@
 # HelloInternet
-Say Hello to a remote friend in all the languages!
+Say Hello to a remote friend in all the languages! This is a team project and team members are Cuidi Wei, Ziyue Li, and Xiaosu Lyu.
 ## Compile server
 gcc hellosrvCpp.cpp -lstdc++ -o hellosrvCpp
 ## Compile client
